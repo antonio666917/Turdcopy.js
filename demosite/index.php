@@ -166,7 +166,7 @@
       new TurdApp (document, $, {
         callbacks: {
           "fb-share": function(copy) {
-            console.log "FB SHARE CALLBACK"
+            console.log("FB SHARE CALLBACK");
           }
         }
       });
