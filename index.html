@@ -49,16 +49,16 @@
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit" >
-				<h1 data-blurb-id="hello-world">Hello, world!</h1>
-				<p data-blurb-id="title">This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-				<p><a class="btn btn-primary btn-large" data-blurb-id="main-cta">Learn more &raquo;</a></p>
+				<h1>Hello!</h1>
+				<p>We made this Javascript plugin to save us time when copywriters and other non-programmers wish to edit copy text in websites without needing help from development. It's goal is to be as intuitive and easy to learn as possible.</p>
+				<p><a href="demosite/index.php" class="btn btn-primary btn-large">View demo &raquo;</a></p>
             </div>
 
 			<!-- Example row of columns -->
 			<div class="row">
 				<div class="span4">
-					<h2 data-blurb-id="first-heading">Heading</h2>
-					<p data-blurb-id="first-paragraph">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+					<h2>Heading</h2>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 					<p><a class="btn" href="#">View details &raquo;</a></p>
 				</div>
 				<div class="span4">
@@ -86,32 +86,5 @@
 
 		<script src="scripts/vendor/bootstrap.min.js"></script>
 
-		<script src="scripts/turdcopy.js"></script>
-		<script>
-			new TurdApp (document, $, {
-				callbacks: {
-					"fb-share": function(copy) {
-						console.log("FB SHARE CALLBACK");
-					}
-				}
-			});
-		</script>
-
-		<!-- TurdCopy JS -->
-		<button class="btn btn-medium btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
-		<aside id="turd-sidebar">
-			<h3>Edit</h3>
-			<h4 id="edited-blurb-id">Default blurb ID</h4>
-			<select id="multiple-blurb-ids">
-				<option selected>Default blurb ID</option>
-				<option>Second blurb ID</option>
-				<option>Third blurb ID</option>
-			</select>
-
-			<textarea></textarea>
-			<button class="btn btn-large btn-primary pull-right">Save</button>
-
-			<button class="toggle-turd"><i class="icon-chevron-left"></i></button>
-		</aside>
 	</body>
 </html>

@@ -3,8 +3,8 @@
 	bottom: 1em;
 	right: 1em;
 
-	.icon-chevron-left {
-		margin-left: -6px;
+	.icon-chevron-right {
+		margin-left: -5px;
 	}
 }
 
@@ -17,11 +17,11 @@
 	z-index: 9999;
 
 	box-sizing: border-box;
-	padding: 3em 1em 0 2em;
-	width: 25%;
+	padding: 0 1em 0 2em;
+	width: 30%;
 	height: 100%;
 
-	background: #fff;
+	background: #f9f9f9;
 	box-shadow: -1px 0 2px rgba(0,0,0,.25);
 	border-left: 1px solid #ccc;
 	-webkit-transform: translate(100%, 0);
@@ -45,10 +45,15 @@
 	textarea {
 		box-sizing: border-box;
 		width: 100%;
-		height: 150px;
+		height: 300px;
 		resize: vertical;
+
+		font-size: 14px;
 	}
 
+	select {
+		display: none;
+	}
 
 	.btn {
 		margin-right: 0;
@@ -59,18 +64,22 @@
 		top: 0;
 		left: 0;
 
-		width: 10px;
+		width: 1em;
 		height: 100%;
 
 		background: #f0f0f0;
 		border: 0;
+
+		&:hover {
+			background: #f3f3f3;
+		}
 	}
 }
 
 // Turcopy.js Editable regions highlight
 
 [data-blurb-id] {
-	&:hover, &:focus, &:active, &:target {
+	&:hover {
 		background: #fff;
 		border-radius: 0;
 		border-color: transparent;

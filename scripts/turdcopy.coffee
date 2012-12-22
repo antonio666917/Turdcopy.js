@@ -12,7 +12,7 @@ class this.TurdApp
 		@$ ->
 			console.log 'fuck you julian, and let\'s load the fucking sidebar'
 			sideBarMarkup = ['
-			<button class="btn btn-medium btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
+			<button class="btn btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
 				<aside id="turd-sidebar">
 					<h3>Edit</h3>
 					<h4 id="edited-blurb-id">Default blurb ID</h4>
@@ -22,12 +22,12 @@ class this.TurdApp
 						<option>Third blurb ID</option>
 					</select>
 					<textarea></textarea>
-					<button class="btn btn-large btn-primary pull-right">Save</button>
+					<button class="btn btn-primary btn-small pull-right">Save</button>
 
-					<button class="toggle-turd"><i class="icon-chevron-left"></i></button>
+					<button class="toggle-turd"><i class="icon-chevron-right"></i></button>
 				</aside>']
 
-			sideBarCSSInclusion = ['<link rel="stylesheet" href="../styles/css/main.css">'];
+			sideBarCSSInclusion = ['<link rel="stylesheet" href="../styles/main.css">'];
 			$('body').append(sideBarCSSInclusion).append(sideBarMarkup)
 
 			# Sidebar toggle functionality
@@ -39,8 +39,9 @@ class this.TurdApp
 		$('[data-blurb-id]').unbind('click').click ->
 			element = null
 			element = $(@)
+
 			sidebar  = $('#turd-sidebar');
-			
+
 			sidebar.find('#edited-blurb-id').text(element.data('blurb-id'));
 			sidebar.find('textarea').val(element.text())
 			# /$('#turd-sidebar input').val(element.data('blurb-id'));
@@ -52,7 +53,7 @@ class this.TurdApp
 
 			sidebar.find('.btn-primary').click ->
 				control.set_copy_string element.data('blurb-id'), sidebar.find('textarea').val() if confirm 'Are you sure you want to save this new copy?'
-				
+
 
 
 class this.TurdControl
