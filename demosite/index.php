@@ -124,7 +124,7 @@
     <div class="container marketing">
       <div class="row">
         <div class="span12">
-          <h3 data-blurb-id="contentHeader"><?php printBlurb('mainContentHeader') ?></h3>
+          <h3 data-blurb-id="mainContentHeader"><?php printBlurb('mainContentHeader') ?></h3>
           <div data-blurb-id="mainContentCopy"><?php printBlurb('mainContentCopy') ?></div>
         </div>
       </div>

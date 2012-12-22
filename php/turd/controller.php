@@ -6,9 +6,9 @@
 		private $lang_object;
 		private $file_path;
 
-		public function __construct($lang = 'turd') { //Make path static always or insert the path
+		public function __construct($lang = 'turdcopy-blurbs-EN') { //Make path static always or insert the path
 
-			$this->file_path = '../../lang/' . $lang . '.json';
+			$this->file_path = '../../demosite/js/' . $lang . '.json';
 			$this->read_lang_doc();
 
 			//$this->debug($this->lang_object);

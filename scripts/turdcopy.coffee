@@ -1,9 +1,11 @@
 root = exports ? this
 
 class this.TurdApp
+
+
+
 	constructor: (@document, @$, @options) ->
 		@control = new TurdControl(@$, @options.callbacks)
-		@control.test()
 		@populate()
 
 		#Document Ready, place all DOM code here
@@ -33,15 +35,25 @@ class this.TurdApp
 				$('#turd-sidebar').toggleClass('open');
 
 	populate: ->
+		control = @control
 		$('[data-blurb-id]').unbind('click').click ->
 			element = null
 			element = $(@)
+			sidebar  = $('#turd-sidebar');
 			
-			$('#turd-sidebar textarea').val($(@).text())
-			$('#turd-sidebar input').val($(@).data('blurb-id'));
-			$('#turd-sidebar textarea').unbind().keyup ->
+			sidebar.find('#edited-blurb-id').text(element.data('blurb-id'));
+			sidebar.find('textarea').val(element.text())
+			# /$('#turd-sidebar input').val(element.data('blurb-id'));
+			sidebar.find('textarea').unbind().keyup ->
 				newText = $('#turd-sidebar textarea').val()
 				$(element).text(newText)
+
+			$('#turd-sidebar').addClass('open') if !$('#turd-sidebar').hasClass('open')
+
+			sidebar.find('.btn-primary').click ->
+				control.set_copy_string element.data('blurb-id'), sidebar.find('textarea').val() if confirm 'Are you sure you want to save this new copy?'
+				
+
 
 class this.TurdControl
 
