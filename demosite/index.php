@@ -1,10 +1,16 @@
 <?php
   /**
-   * Copy Initialization
+   * This block of code initializes the copy by retrieving the JSON Copy file
+   * via PHP and uses ECHOs to print the output copy in server-side.
+   * Why use server-side printing? Because delivering the copy on page load
+   * via JavaScript will cause the page to initially load without copy and in
+   * case of slowdowns the page will look like a total turd without the copy strings.
+   * By loading the copy server-side we ensure that the copy is loaded when the page loads.
    */
-  $blurbLang = 'EN'; // Set the default to English
+  $blurbLang = 'EN'; // Set the default blurb to English (this could be potentially use to mount different language files)
   $blurbFile = file_get_contents('js/turdcopy-blurbs-'.$blurbLang.'.json'); // Open the JSON COPY file for the specified language
-  $blurb = json_decode($blurbFile); // JSON decode it
+  $blurb = json_decode($blurbFile); // JSON decode it so that we can use it later
+  // Now we have all the site's copy on the $blurb variable as a PHP Object Array
 ?>
 <!DOCTYPE html>
 <html lang="en">
