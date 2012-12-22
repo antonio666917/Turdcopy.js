@@ -7,16 +7,34 @@
    * case of slowdowns the page will look like a total turd without the copy strings.
    * By loading the copy server-side we ensure that the copy is loaded when the page loads.
    */
+  global $blurb; // We set $blurb as global (which is horrible), for lazyness. Need to fix this later, perhaps made this a class...
   $blurbLang = 'EN'; // Set the default blurb to English (this could be potentially use to mount different language files)
   $blurbFile = file_get_contents('js/turdcopy-blurbs-'.$blurbLang.'.json'); // Open the JSON COPY file for the specified language
   $blurb = json_decode($blurbFile); // JSON decode it so that we can use it later
   // Now we have all the site's copy on the $blurb variable as a PHP Object Array
+
+  /**
+   * Made a wrapper/helper function in case we need it afterwards.
+   * (Better than having to edit every single blurb echo later if needed...)
+   * @param  string $blurbID ID of the blurb string, it's the string's container data-blurbid attribute value.
+   * @return string          Prints the blurb copy string.
+   */
+  function printBlurb($blurbID)
+  {
+    global $blurb; // get the global $blurb variable...
+    echo $blurb->$blurbID->text;
+  }
+
+  /**
+   * End of turdcopy.js init PHP code.
+   */
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title data-blurbid="sitetitle"><?php echo $blurb->siteTitle->text; ?></title>
+    <title data-blurbid="sitetitle"><?php printBlurb(siteTitle) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -41,14 +59,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <a class="brand" data-blurbid="navHeader" href="#"><?php echo $blurb->navHeader->text; ?></a>
+            <a class="brand" data-blurbid="navHeader" href="#"><?php printBlurb(navHeader) ?></a>
             
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="#" data-blurbid="navMenuItem1"><?php echo $blurb->navMenuItem1->text; ?></a></li>
-                <li><a href="#" data-blurbid="navMenuItem2"><?php echo $blurb->navMenuItem2->text; ?></a></li>
-                <li><a href="#" data-blurbid="navMenuItem3"><?php echo $blurb->navMenuItem3->text; ?></a></li>
-                <li><a href="#" data-blurbid="navMenuItem4"><?php echo $blurb->navMenuItem4->text; ?></a></li>
+                <li class="active"><a href="#" data-blurbid="navMenuItem1"><?php printBlurb(navMenuItem1) ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem2"><?php printBlurb(navMenuItem2) ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem3"><?php printBlurb(navMenuItem3) ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem4"><?php printBlurb(navMenuItem4) ?></a></li>
               </ul>
             </div>
           </div>
@@ -65,9 +83,9 @@
           <img src="img/examples/slide-01.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1 data-blurbid="carHeader1"><?php echo $blurb->carHeader1->text; ?></h1>
-              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy1->text; ?></p>
-              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA1"><?php echo $blurb->carCTA1->text; ?></a>
+              <h1 data-blurbid="carHeader1"><?php printBlurb(carHeader1) ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php printBlurb(carCopy1) ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA1"><?php printBlurb(carCTA1) ?></a>
             </div>
           </div>
         </div>
@@ -75,9 +93,9 @@
           <img src="img/examples/slide-02.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1 data-blurbid="carHeader2"><?php echo $blurb->carHeader2->text; ?></h1>
-              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy2->text; ?></p>
-              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA2"><?php echo $blurb->carCTA2->text; ?></a>
+              <h1 data-blurbid="carHeader2"><?php printBlurb(carHeader2) ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php printBlurb(carCopy2) ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA2"><?php printBlurb(carCTA2) ?></a>
             </div>
           </div>
         </div>
@@ -85,9 +103,9 @@
           <img src="img/examples/slide-03.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1 data-blurbid="carHeader3"><?php echo $blurb->carHeader3->text; ?></h1>
-              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy3->text; ?></p>
-              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA3"><?php echo $blurb->carCTA3->text; ?></a>
+              <h1 data-blurbid="carHeader3"><?php printBlurb(carHeader3) ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php printBlurb(carCopy3) ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA3"><?php printBlurb(carCTA3) ?></a>
             </div>
           </div>
         </div>
@@ -101,8 +119,8 @@
     <div class="container marketing">
       <div class="row">
         <div class="span12">
-          <h3 data-blurbid="contentHeader"><?php echo $blurb->mainContentHeader->text; ?></h3>
-          <?php echo $blurb->mainContentCopy->text; ?>
+          <h3 data-blurbid="contentHeader"><?php printBlurb(mainContentHeader) ?></h3>
+          <?php printBlurb(mainContentCopy) ?>
         </div>
       </div>
 
@@ -110,21 +128,21 @@
       <div class="row">
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2 data-blurbid="subContentHeader1"><?php echo $blurb->subContentHeader1->text; ?></h2>
-          <p data-blurbid="subContentCopy1"><?php echo $blurb->subContentCopy1->text; ?></p>
-          <p><a class="btn" href="#" data-blurbid="subContentCTA1"><?php echo $blurb->subContentCTA1->text; ?></a></p>
+          <h2 data-blurbid="subContentHeader1"><?php printBlurb(subContentHeader1) ?></h2>
+          <p data-blurbid="subContentCopy1"><?php printBlurb(subContentCopy1) ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA1"><?php printBlurb(subContentCTA1) ?></a></p>
         </div>
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2 data-blurbid="subContentHeader2"><?php echo $blurb->subContentHeader2->text; ?></h2>
-          <p data-blurbid="subContentCopy2"><?php echo $blurb->subContentCopy2->text; ?></p>
-          <p><a class="btn" href="#" data-blurbid="subContentCTA2"><?php echo $blurb->subContentCTA2->text; ?></a></p>
+          <h2 data-blurbid="subContentHeader2"><?php printBlurb(subContentHeader2) ?></h2>
+          <p data-blurbid="subContentCopy2"><?php printBlurb(subContentCopy2) ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA2"><?php printBlurb(subContentCTA2) ?></a></p>
         </div>
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2 data-blurbid="subContentHeader3"><?php echo $blurb->subContentHeader3->text; ?></h2>
-          <p data-blurbid="subContentCopy3"><?php echo $blurb->subContentCopy3->text; ?></p>
-          <p><a class="btn" href="#" data-blurbid="subContentCTA3"><?php echo $blurb->subContentCTA3->text; ?></a></p>
+          <h2 data-blurbid="subContentHeader3"><?php printBlurb(subContentHeader3) ?></h2>
+          <p data-blurbid="subContentCopy3"><?php printBlurb(subContentCopy3) ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA3"><?php printBlurb(subContentCTA3) ?></a></p>
         </div>
       </div>
 
@@ -134,8 +152,8 @@
     ================================================== -->
       
       <footer>
-        <p class="pull-right"><a href="#" data-blurbid="backToTop"><?php echo $blurb->backToTop->text; ?></a></p>
-        <p><?php echo $blurb->copyright->text; ?></p>
+        <p class="pull-right"><a href="#" data-blurbid="backToTop"><?php printBlurb(backToTop) ?></a></p>
+        <p><?php printBlurb(copyright) ?></p>
       </footer>
 
     </div>
