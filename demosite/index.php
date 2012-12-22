@@ -120,7 +120,7 @@
       <div class="row">
         <div class="span12">
           <h3 data-blurb-id="contentHeader"><?php printBlurb('mainContentHeader') ?></h3>
-          <?php printBlurb('mainContentCopy') ?>
+          <div data-blurb-id="mainContentCopy"><?php printBlurb('mainContentCopy') ?></div>
         </div>
       </div>
 
