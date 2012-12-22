@@ -1,0 +1,38 @@
+{
+	"siteTitle":
+	{
+		"text": "Demo Template Website",
+		"comment": "This is the site title.",
+		"lastMod": ""
+	},
+	"navHeader":
+	{
+		"text": "Demo Template Website!",
+		"comment": "This is the site header title.",
+		"lastMod": ""
+	},
+	"navMenuItem1":
+	{
+		"text": "Home",
+		"comment": "Nav Link to the homepage",
+		"lastMod": ""
+	},
+	"navMenuItem2":
+	{
+		"text": "About US",
+		"comment": "Nav Link to the About US section",
+		"lastMod": ""
+	},
+	"navMenuItem3":
+	{
+		"text": "Services",
+		"comment": "Nav Link to the Services section",
+		"lastMod": ""
+	},
+	"navMenuItem4":
+	{
+		"text": "Contact US",
+		"comment": "Nav link to the Contact US section",
+		"lastMod": ""
+	}
+}
