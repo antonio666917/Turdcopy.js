@@ -56,26 +56,26 @@
 
       <div class="container">
 
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
+	<div class="navbar navbar-inverse">
+	  <div class="navbar-inner">
 
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a class="brand" data-blurb-id="navHeader" href="#"><?php printBlurb('navHeader') ?></a>
+	    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </a>
+	    <a class="brand" data-blurb-id="navHeader" href="#"><?php printBlurb('navHeader') ?></a>
 
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <li class="active"><a href="#" data-blurb-id="navMenuItem1"><?php printBlurb('navMenuItem1') ?></a></li>
+	    <div class="nav-collapse collapse">
+	      <ul class="nav">
+		<li class="active"><a href="#" data-blurb-id="navMenuItem1"><?php printBlurb('navMenuItem1') ?></a></li>
                 <li><a href="#" data-blurb-id="navMenuItem2"><?php printBlurb('navMenuItem2') ?></a></li>
                 <li><a href="#" data-blurb-id="navMenuItem3"><?php printBlurb('navMenuItem3') ?></a></li>
                 <li><a href="#" data-blurb-id="navMenuItem4"><?php printBlurb('navMenuItem4') ?></a></li>
               </ul>
             </div>
-          </div>
-        </div>
+	  </div>
+	</div>
 
       </div>
     </div>
@@ -157,8 +157,8 @@
     ================================================== -->
 
       <footer>
-        <p class="pull-right"><a href="#" data-blurb-id="backToTop"><?php printBlurb('backToTop') ?></a></p>
-        <p><?php printBlurb('copyright') ?></p>
+	<p class="pull-right"><a href="#" data-blurb-id="backToTop"><?php printBlurb('backToTop') ?></a></p>
+	<p><?php printBlurb('copyright') ?></p>
       </footer>
 
     </div>
