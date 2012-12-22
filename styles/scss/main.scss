@@ -1,4 +1,4 @@
-#launch-turd {
+.toggle-turd {
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
@@ -8,7 +8,7 @@
 
 #turd-sidebar {
 	position: fixed;
-	right: -25%;
+	right: 0;
 	top: 0;
 
 	box-sizing: border-box;
@@ -18,6 +18,12 @@
 
 	background: #fff;
 	border-left: 1px solid #ccc;
+	-webkit-transform: translate(100%, 0);
+	-webkit-transition: all 0.2s ease-out;
+
+	&.open {
+		-webkit-transform: translate(0, 0);
+	}
 
 	input[type="text"] {
 		box-sizing: border-box;
@@ -37,7 +43,7 @@
 		margin-right: 0;
 	}
 
-	.turd-toggle {
+	.toggle-turd {
 		position: absolute;
 		top: 0;
 		left: 0;

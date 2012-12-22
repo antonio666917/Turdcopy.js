@@ -5,8 +5,15 @@ class this.TurdApp
 		@control = new TurdControl(@$)
 		@$ ->
 			console.log 'Turd is plopping'
+
+			# Sidebar toggle button behavior
+			$('.toggle-turd').on 'click', ->
+				$('#turd-sidebar').toggleClass('open')
+				return
+
 		@.populate()
 		@control.test()
+
 	populate: ->
 		@$('[data-blurb-id]').click ->
 			$('#turd-sidebar textarea').val($(@).text())
