@@ -1,13 +1,12 @@
 root = exports ? this
 
 class this.TurdApp
-	
+
 	constructor: (@document, @$, @options) ->
 		@control = new TurdControl(@$)
 		@populate()
 		#Document Ready, place all DOM code here
 		@$ ->
-			console.log 'fuck you julian, and let\'s load the fucking sidebar'
 			sideBarMarkup = ['
 			<button class="btn btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
 				<aside id="turd-sidebar">
@@ -18,9 +17,8 @@ class this.TurdApp
 						<option>Second blurb ID</option>
 						<option>Third blurb ID</option>
 					</select>
-					<textarea></textarea>
-					<button class="btn btn-primary btn-small pull-right">Save</button>
-
+					<textarea class="edit-text"></textarea>
+					<button class="btn btn-large btn-primary pull-right">Save</button>
 					<button class="toggle-turd"><i class="icon-chevron-right"></i></button>
 				</aside>']
 
@@ -45,13 +43,13 @@ class this.TurdApp
 
 				$.each element.data('blurb-id'), (index, value) ->
 					new_options += '<option value="' + value + '">' + value + '</option>';
-				
+
 				sidebar.find('#multiple-blurb-ids').html new_options
 				sidebar.find('#multiple-blurb-ids').show()
 
 				sidebar.find('#multiple-blurb-ids').change ->
 					control.get_copy_string $(@).val(), update_sidebar
-						
+
 
 
 			else
@@ -59,12 +57,12 @@ class this.TurdApp
 				sidebar.find('#multiple-blurb-ids').hide()
 				console.log element.data('blurb-id')
 				sidebar.find('#edited-blurb-id').text(element.data('blurb-id'));
-				
-			
-			
+
+
+
 			# /$('#turd-sidebar input').val(element.data('blurb-id'));
 			sidebar.find('textarea').unbind().keyup ->
-				newText = $('#turd-sidebar textarea').val()
+				newText = $('#turd-sidebar textarea').val().replace(/&/g, '&amp;').replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/\n\r?/g, '<br />')
 				$(element).text(newText)
 
 			if !sidebar.hasClass('open')
@@ -85,7 +83,7 @@ class this.TurdControl
 		ACTIVE_CLASS: 'editable-turd'
 
 	constructor: (@$, @callbacks)->
-		
+
 
 	attr:
 		id: null

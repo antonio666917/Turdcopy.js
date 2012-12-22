@@ -53,19 +53,19 @@
     <!-- Navigation
     ================================================== -->
     <div class="navbar-wrapper">
-      
+
       <div class="container">
 
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
-            
+
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
             <a class="brand" data-blurb-id="navHeader" href="#"><?php printBlurb('navHeader') ?></a>
-            
+
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="#" data-blurb-id="navMenuItem1"><?php printBlurb('navMenuItem1') ?></a></li>
@@ -77,7 +77,7 @@
           </div>
         </div>
 
-      </div> 
+      </div>
     </div>
 
     <!-- Carousel
@@ -155,7 +155,7 @@
 
     <!-- Footer
     ================================================== -->
-      
+
       <footer>
         <p class="pull-right"><a href="#" data-blurb-id="backToTop"><?php printBlurb('backToTop') ?></a></p>
         <p><?php printBlurb('copyright') ?></p>
@@ -167,6 +167,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script src="../scripts/turdcopy.js"></script>
+
     <script>
       new TurdApp (document, $, {
         callbacks: {
