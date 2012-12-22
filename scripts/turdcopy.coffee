@@ -1,9 +1,6 @@
 root = exports ? this
 
 class this.TurdApp
-
-
-
 	constructor: (@document, @$, @options) ->
 		@control = new TurdControl(@$, @options.callbacks)
 		@populate()
@@ -37,14 +34,11 @@ class this.TurdApp
 	populate: ->
 		control = @control
 		$('[data-blurb-id]').unbind('click').click ->
-			element = null
 			element = $(@)
+			sidebar = $('#turd-sidebar')
 
-			sidebar  = $('#turd-sidebar');
-
-			sidebar.find('#edited-blurb-id').text(element.data('blurb-id'));
+			sidebar.find('#edited-blurb-id').text(element.data('blurb-id'))
 			sidebar.find('textarea').val(element.text())
-			# /$('#turd-sidebar input').val(element.data('blurb-id'));
 			sidebar.find('textarea').unbind().keyup ->
 				newText = $('#turd-sidebar textarea').val()
 				$(element).text(newText)
