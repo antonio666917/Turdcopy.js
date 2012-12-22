@@ -2,19 +2,17 @@ root = exports ? this
 
 class this.TurdApp
 	constructor: (@document, @$) ->
-		@control = new TurdControl(@$, @options.callbacks)
-		@control.test()
-		@populate()
-
-		#Document Ready, place all DOM code here
+		@control = new TurdControl(@$)
 		@$ ->
 			console.log 'Turd is plopping'
+			
+			console.log 'let\'s inject the sidebar ok'
+			sideBarMarkup = ['<aside id="turd-sidebar"><h2>Edit</h2><input type="text" placeholder="String ID" disabled/><textarea></textarea><button class="btn btn-large btn-primary pull-right">Save</button><button class="turd-toggle"><i class="icon-chevron-left"></i></button></aside>']
+			sideBarCSSInclusion = ['<link rel="stylesheet" href="../styles/css/main.css">'];
+			$('body').append(sideBarCSSInclusion).append(sideBarMarkup)
 
-			# Sidebar toggle button behavior
-			$('.toggle-turd').on 'click', ->
-				$('#turd-sidebar').toggleClass('open')
-				return
-
+		@.populate()
+		@control.test()
 	populate: ->
 		@$('[data-blurb-id]').click ->
 			$('#turd-sidebar textarea').val($(@).text())
@@ -22,8 +20,9 @@ class this.TurdApp
 
 class this.TurdControl
 
-	constructor: (@$, @callbacks)->
-		console.log(@callbacks)
+	constructor: (@$)->
+		console.log(@$)
+
 
 	attr:
 		id: null
