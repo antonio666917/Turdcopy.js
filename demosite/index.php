@@ -8,7 +8,12 @@
    * By loading the copy server-side we ensure that the copy is loaded when the page loads.
    */
   global $blurb; // We set $blurb as global (which is horrible), for lazyness. Need to fix this later, perhaps made this a class...
-  $blurbLang = 'EN'; // Set the default blurb to English (this could be potentially use to mount different language files)
+  if(isset($_GET['l']))
+  {
+    $blurbLang = $_GET['l']; // Set the default language to whatever the l var on the URL is.
+  } else {
+    $blurbLang = 'EN'; // Set the default blurb to English (this could be potentially use to mount different language files)
+  }
   $blurbFile = file_get_contents('js/turdcopy-blurbs-'.$blurbLang.'.json'); // Open the JSON COPY file for the specified language
   $blurb = json_decode($blurbFile); // JSON decode it so that we can use it later
   // Now we have all the site's copy on the $blurb variable as a PHP Object Array
