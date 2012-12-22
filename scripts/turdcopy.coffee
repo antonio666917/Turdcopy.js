@@ -5,8 +5,12 @@ class this.TurdApp
 		@control = new TurdControl(@$)
 		@$ ->
 			console.log 'Turd is plopping'
-
+		@.populate()
 		@control.test()
+	populate: ->
+		@$('[data-blurb-id]').click ->
+			$('#turd-sidebar textarea').val($(@).text())
+			$('#turd-sidebar input').val($(@).data('blurb-id'));
 
 class this.TurdControl
 
@@ -14,7 +18,7 @@ class this.TurdControl
 		console.log(@$)
 
 
-	attr: 
+	attr:
 		id: null
 		text: null
 		comment: null
