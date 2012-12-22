@@ -18,7 +18,7 @@
 			if($read_file = file_get_contents($this->file_path)){
 				$this->lang_object = json_decode($read_file);
 			}else{
-				echo "FOOL! There's no file for that language!";
+				echo false;
 			}
 		}
 
@@ -27,7 +27,6 @@
 			//var_dump($the_params);
 			if($copy_object = $this->lang_object->{$the_params['id']})
 				$this->return_json($copy_object);
-				
 		}
 
 		public function set_copy_string($the_params){
@@ -36,7 +35,7 @@
 				$copy_object->lastMod = time();
 				$this->write_new_json();
 			}else{
-				echo "No string of that name to edit";
+				echo false;
 			}
 		}
 
@@ -50,7 +49,7 @@
 				$this->return_json($this->lang_object);
 
 			}else{
-				echo "FOOL! The file could not be backed up!";
+				echo false;
 			}
 		}
 
