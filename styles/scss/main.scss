@@ -1,4 +1,4 @@
-// General Styles
+// Turdcopy.js sidebar
 
 #turd-sidebar {
 	position: fixed;
@@ -42,4 +42,12 @@
 		background: #f0f0f0;
 		border: 0;
 	}
+}
+
+// Turcopy.js Editable regions highlight
+
+[data-blurb-id]:hover {
+	background: #fff;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+	outline: thin solid rgba(82,168,236,0.8);
 }
