@@ -1,0 +1,2 @@
+SetEnv TURD_SENDGRID_USER yourusername
+SetEnv TURD_SENDGRID_PASSWORD yourpassword
