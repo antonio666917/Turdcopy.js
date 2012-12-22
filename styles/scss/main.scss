@@ -17,8 +17,9 @@
 	z-index: 9999;
 
 	box-sizing: border-box;
+	opacity: .50;
 	padding: 0 1em 0 2em;
-	width: 30%;
+	width: 400px;
 	height: 100%;
 
 	background: #f9f9f9;
@@ -26,6 +27,10 @@
 	border-left: 1px solid #ccc;
 	-webkit-transform: translate(100%, 0);
 	-webkit-transition: all 0.2s ease-out;
+
+	&:hover {
+		opacity: 1;
+	}
 
 	&.open {
 		-webkit-transform: translate(0, 0);
@@ -78,14 +83,12 @@
 
 // Turcopy.js Editable regions highlight
 
-[data-blurb-id] {
-	&:hover {
-		background: #fff;
-		border-radius: 0;
-		border-color: transparent;
-		color: #333;
-		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
-		outline: thin solid rgba(82,168,236,0.8);
-		text-shadow: none;
-	}
+[data-blurb-id]:hover, .editable-turd {
+	background: #fff;
+	border-radius: 0;
+	border-color: transparent;
+	color: #333;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+	outline: thin solid rgba(82,168,236,0.8);
+	text-shadow: none;
 }
