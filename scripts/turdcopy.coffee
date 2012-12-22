@@ -7,7 +7,6 @@ class this.TurdApp
 			console.log 'Turd is plopping'
 
 			console.log 'let\'s inject the sidebar ok'
-
 			sideBarMarkup = ['
 			<button class="btn btn-medium btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
 				<aside id="turd-sidebar">
@@ -20,6 +19,8 @@ class this.TurdApp
 					</select>
 					<textarea></textarea>
 					<button class="btn btn-large btn-primary pull-right">Save</button>
+
+					<button class="toggle-turd"><i class="icon-chevron-left"></i></button>
 				</aside>']
 
 			sideBarCSSInclusion = ['<link rel="stylesheet" href="../styles/css/main.css">'];
@@ -31,7 +32,6 @@ class this.TurdApp
 
 		@.populate()
 		@control.test()
-
 	populate: ->
 		$('[data-blurb-id]').unbind('click').click ->
 			element = null
