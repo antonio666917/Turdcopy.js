@@ -22,16 +22,18 @@
 			}
 		}
 
-		public function get_copy_string($id = 'glossary'){
+		public function get_copy_string($the_params){
 			//echo $id;
-			if($this->lang_object->{$id})
-				$this->return_json($this->lang_object->{$id});
+			//var_dump($the_params);
+			if($copy_object = $this->lang_object->{$the_params['id']})
+				$this->return_json($copy_object);
+				
 		}
 
-		public function set_copy_string($id = 'glossary', $new_value = 'POOP'){
-			if($this->lang_object->{$id}){
-				$this->lang_object->{$id}->text = $new_value;
-				$this->lang_object->{$id}->lastMod = time();
+		public function set_copy_string($the_params){
+			if($copy_object = $this->lang_object->{$the_params['id']}){
+				$copy_object->text = $the_params['text'];
+				$copy_object->lastMod = time();
 				$this->write_new_json();
 			}else{
 				echo "No string of that name to edit";
@@ -44,6 +46,9 @@
 				$json_handle = fopen($this->file_path, 'w');
 				fwrite($json_handle, json_encode($this->lang_object));
 				fclose($json_handle);
+
+				$this->return_json($this->lang_object);
+
 			}else{
 				echo "FOOL! The file could not be backed up!";
 			}
@@ -66,8 +71,19 @@
 		}
 	}
 
-	$CController = new CController();
+	if(isset($_POST)){
+		//var_dump($_POST);
+		$the_function = $_POST['_the_function'];
+		$the_params = $_POST['_params'];
+
+		$CController = new CController();
+		if(method_exists($CController, $the_function))
+			$CController->{$the_function}($the_params);
+			
+	}
+
 	
+
 	//$CController->set_copy_string('copyIdentifier', 'This is another test');
-	$CController->get_copy_string('copyIdentifier');
+	//$CController->get_copy_string('copyIdentifier');
 
