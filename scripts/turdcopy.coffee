@@ -1,10 +1,10 @@
 root = exports ? this
 
 class this.TurdApp
+	
 	constructor: (@document, @$, @options) ->
-		@control = new TurdControl(@$, @options.callbacks)
+		@control = new TurdControl(@$)
 		@populate()
-
 		#Document Ready, place all DOM code here
 		@$ ->
 			console.log 'fuck you julian, and let\'s load the fucking sidebar'
@@ -33,22 +33,51 @@ class this.TurdApp
 
 	populate: ->
 		control = @control
+		update_sidebar = @update_sidebar
 		$('[data-blurb-id]').unbind('click').click ->
 			element = $(@)
-			sidebar = $('#turd-sidebar')
 
-			sidebar.find('#edited-blurb-id').text(element.data('blurb-id'))
-			sidebar.find('textarea').val(element.text())
+			sidebar  = $('#turd-sidebar');
+
+			if typeof element.data('blurb-id') == 'object'
+
+				new_options = ''
+
+				$.each element.data('blurb-id'), (index, value) ->
+					new_options += '<option value="' + value + '">' + value + '</option>';
+				
+				sidebar.find('#multiple-blurb-ids').html new_options
+				sidebar.find('#multiple-blurb-ids').show()
+
+				sidebar.find('#multiple-blurb-ids').change ->
+					control.get_copy_string $(@).val(), update_sidebar
+						
+
+
+			else
+				sidebar.find('textarea').val(element.text())
+				sidebar.find('#multiple-blurb-ids').hide()
+				console.log element.data('blurb-id')
+				sidebar.find('#edited-blurb-id').text(element.data('blurb-id'));
+				
+			
+			
+			# /$('#turd-sidebar input').val(element.data('blurb-id'));
 			sidebar.find('textarea').unbind().keyup ->
 				newText = $('#turd-sidebar textarea').val()
 				$(element).text(newText)
 
-			$('#turd-sidebar').addClass('open') if !$('#turd-sidebar').hasClass('open')
-			control.setElement element
+			if !sidebar.hasClass('open')
+			 	sidebar.addClass('open')
 
-			sidebar.find('.btn-primary').click ->
-				control.set_copy_string element.data('blurb-id'), sidebar.find('textarea').val() if confirm 'Are you sure you want to save this new copy?'
+			sidebar.find('.btn-primary').unbind('click').click ->
+				if confirm 'Are you sure you want to save this new copy?'
+					control.set_copy_string element.data('blurb-id'), sidebar.find('textarea').val(), (res) ->
+						console.log 'copy changed', res
 
+	update_sidebar: (@attr)->
+		sidebar  = $('#turd-sidebar');
+		sidebar.find('textarea').val(@attr.text)
 
 
 class this.TurdControl
@@ -56,7 +85,7 @@ class this.TurdControl
 		ACTIVE_CLASS: 'editable-turd'
 
 	constructor: (@$, @callbacks)->
-		console.log(@callbacks)
+		
 
 	attr:
 		id: null
@@ -66,16 +95,16 @@ class this.TurdControl
 	test: ->
 		@.get_copy_string 'copyIdentifier'
 
-	get_copy_string: (id) ->
+	get_copy_string: (id, callback) ->
 		@.attr.id = id
-		@.do_function_call id, 'get_copy_string'
+		@.do_function_call id, 'get_copy_string', callback
 
-	set_copy_string : (id, text) ->
+	set_copy_string : (id, text, callback) ->
 		@.attr.id = id
 		@.attr.text = text
-		@.do_function_call id, 'set_copy_string'
+		@.do_function_call id, 'set_copy_string', callback
 
-	do_function_call: (id, the_function) ->
+	do_function_call: (id, the_function, callback) ->
 		@$.ajax
 			type: "POST"
 			url: "../php/turd/controller.php"
@@ -84,7 +113,7 @@ class this.TurdControl
 				_the_function: the_function
 				_params: @attr
 			success: (res) ->
-				console.log(res)
+				callback res
 			error: (res) ->
 				console.log(res)
 
