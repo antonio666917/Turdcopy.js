@@ -14,3 +14,7 @@ Icon
 # Compiled Files
 /scripts/Turd.js
 /scripts/turdcopy.js
+/styles/css/
+
+# Compilation Byproducts
+/.sass-cache/
