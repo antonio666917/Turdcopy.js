@@ -1,25 +1,53 @@
-// General Styles
+// Turdcopy.js sidebar
 
-#tcjs-sidebar {
+#turd-sidebar {
 	position: fixed;
 	right: 0;
 	top: 0;
 
 	box-sizing: border-box;
-	padding: 3em 2.5% 0;
+	padding: 3em 1em 0 2em;
 	width: 25%;
 	height: 100%;
 
 	background: #fff;
 	border-left: 1px solid #ccc;
 
-	input[type=text] {
+	input[type="text"] {
+		box-sizing: border-box;
+
+		height: 30px;
 		width: 100%;
 	}
 
 	textarea {
+		box-sizing: border-box;
 		width: 100%;
 		height: 150px;
 		resize: vertical;
 	}
+
+	.btn {
+		margin-right: 0;
+	}
+
+	.turd-toggle {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 10px;
+		height: 100%;
+
+		background: #f0f0f0;
+		border: 0;
+	}
+}
+
+// Turcopy.js Editable regions highlight
+
+[data-blurb-id]:hover {
+	background: #fff;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+	outline: thin solid rgba(82,168,236,0.8);
 }
