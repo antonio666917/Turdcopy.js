@@ -8,8 +8,6 @@ class this.TurdApp
 
 		#Document Ready, place all DOM code here
 		@$ ->
-			console.log 'Turd is plopping'
-
 			console.log 'fuck you julian, and let\'s load the fucking sidebar'
 			sideBarMarkup = ['
 			<button class="btn btn-medium btn-success toggle-turd"><i class="icon-edit icon-white"></i></button>
