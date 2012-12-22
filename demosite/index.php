@@ -60,9 +60,9 @@
           <img src="img/examples/slide-01.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+              <h1 data-blurbid="carHeader1"><?php echo $blurb->carHeader1->text; ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy1->text; ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA1"><?php echo $blurb->carCTA1->text; ?></a>
             </div>
           </div>
         </div>
@@ -70,9 +70,9 @@
           <img src="img/examples/slide-02.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+              <h1 data-blurbid="carHeader2"><?php echo $blurb->carHeader2->text; ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy2->text; ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA2"><?php echo $blurb->carCTA2->text; ?></a>
             </div>
           </div>
         </div>
@@ -80,9 +80,9 @@
           <img src="img/examples/slide-03.jpg" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+              <h1 data-blurbid="carHeader3"><?php echo $blurb->carHeader3->text; ?></h1>
+              <p class="lead" data-blurbid="carCopy1"><?php echo $blurb->carCopy3->text; ?></p>
+              <a class="btn btn-large btn-primary" href="#" data-blurbid="carCTA3"><?php echo $blurb->carCTA3->text; ?></a>
             </div>
           </div>
         </div>
@@ -96,30 +96,30 @@
     <div class="container marketing">
       <div class="row">
         <div class="span12">
-          <h3>This is mah website!</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda vitae error pariatur quasi sequi architecto eligendi accusantium ex minima earum dolores aliquid voluptatem iusto unde nulla ratione itaque. Saepe ea sequi consectetur facilis ipsam adipisci architecto quaerat praesentium libero aspernatur eius cum voluptate accusantium impedit tenetur optio porro nulla provident molestias reiciendis.</p>
-          <p>Corrupti perferendis debitis accusamus laborum excepturi! Optio laborum natus magni quae a tempore sint non voluptatem quas reprehenderit atque assumenda veritatis qui eaque dolorem aliquid vero tempora. Ullam aperiam repellat asperiores similique iusto eveniet exercitationem enim odit modi reprehenderit rerum nemo debitis beatae sint illo laborum autem vero.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum fuga consectetur numquam eveniet ducimus expedita nulla maxime iure eius nemo! Animi consequatur inventore eveniet a.</p>
+          <h3 data-blurbid="contentHeader"><?php echo $blurb->mainContentHeader->text; ?></h3>
+          <?php echo $blurb->mainContentCopy->text; ?>
         </div>
       </div>
+
+
       <div class="row">
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2 data-blurbid="subContentHeader1"><?php echo $blurb->subContentHeader1->text; ?></h2>
+          <p data-blurbid="subContentCopy1"><?php echo $blurb->subContentCopy1->text; ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA1"><?php echo $blurb->subContentCTA1->text; ?></a></p>
         </div>
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2 data-blurbid="subContentHeader2"><?php echo $blurb->subContentHeader2->text; ?></h2>
+          <p data-blurbid="subContentCopy2"><?php echo $blurb->subContentCopy2->text; ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA2"><?php echo $blurb->subContentCTA2->text; ?></a></p>
         </div>
         <div class="span4">
           <img class="img-circle" data-src="holder.js/140x140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2 data-blurbid="subContentHeader3"><?php echo $blurb->subContentHeader3->text; ?></h2>
+          <p data-blurbid="subContentCopy3"><?php echo $blurb->subContentCopy3->text; ?></p>
+          <p><a class="btn" href="#" data-blurbid="subContentCTA3"><?php echo $blurb->subContentCTA3->text; ?></a></p>
         </div>
       </div>
 
@@ -129,8 +129,8 @@
     ================================================== -->
       
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2012 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p class="pull-right"><a href="#" data-blurbid="backToTop"><?php echo $blurb->backToTop->text; ?></a></p>
+        <p><?php echo $blurb->copyright->text; ?></p>
       </footer>
 
     </div>
