@@ -44,6 +44,7 @@ class this.TurdApp
 				$(element).text(newText)
 
 			$('#turd-sidebar').addClass('open') if !$('#turd-sidebar').hasClass('open')
+			control.setElement element
 
 			sidebar.find('.btn-primary').click ->
 				control.set_copy_string element.data('blurb-id'), sidebar.find('textarea').val() if confirm 'Are you sure you want to save this new copy?'
@@ -51,6 +52,8 @@ class this.TurdApp
 
 
 class this.TurdControl
+	constants:
+		ACTIVE_CLASS: 'editable-turd'
 
 	constructor: (@$, @callbacks)->
 		console.log(@callbacks)
@@ -84,3 +87,11 @@ class this.TurdControl
 				console.log(res)
 			error: (res) ->
 				console.log(res)
+
+	setElement: (element) ->
+		if @element and @element.hasClass @constants.ACTIVE_CLASS
+			@element.removeClass @constants.ACTIVE_CLASS
+
+		@element = element
+		@element.addClass @constants.ACTIVE_CLASS
+
