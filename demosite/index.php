@@ -15,7 +15,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
