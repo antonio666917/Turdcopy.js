@@ -46,8 +46,21 @@
 
 // Turcopy.js Editable regions highlight
 
+<<<<<<< HEAD
 [data-blurb-id]:hover {
 	background: #fff;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
 	outline: thin solid rgba(82,168,236,0.8);
+=======
+[data-blurb-id] {
+	&:hover, &:focus, &:active, &:target {
+		background: #fff;
+		border-radius: 0;
+		border-color: transparent;
+		color: #333;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+		outline: thin solid rgba(82,168,236,0.8);
+		text-shadow: none;
+	}
+>>>>>>> Added hover state to editable elements.
 }
