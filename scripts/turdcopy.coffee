@@ -1,12 +1,8 @@
 root = exports ? this
 
 class this.TurdApp
-	constructor: (@document, @$) ->
+	constructor: (@document, @$, @options) ->
 		@control = new TurdControl(@$)
-		@control.test()
-		@populate()
-
-		#Document Ready, place all DOM code here
 		@$ ->
 			console.log 'Turd is plopping'
 
@@ -72,7 +68,7 @@ class this.TurdControl
 	do_function_call: (id, the_function) ->
 		@$.ajax
 			type: "POST"
-			url: "php/turd/controller.php"
+			url: "../php/turd/controller.php"
 			dataType: "JSON"
 			data:
 				_the_function: the_function
