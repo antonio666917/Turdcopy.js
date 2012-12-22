@@ -21,8 +21,6 @@ class this.TurdApp
 class this.TurdControl
 
 	constructor: (@$)->
-		console.log(@$)
-
 
 	attr:
 		id: null
@@ -30,7 +28,7 @@ class this.TurdControl
 		comment: null
 
 	test: ->
-		@.set_copy_string 'copyIdentifier', 'THIS IS WALDES TEST'
+		@.get_copy_string 'copyIdentifier'
 
 	get_copy_string: (id) ->
 		@.attr.id = id
@@ -47,8 +45,8 @@ class this.TurdControl
 			url: "php/turd/controller.php"
 			dataType: "JSON"
 			data:
-				'_the_function': the_function
-				'_params': @attr
+				_the_function: the_function
+				_params: @attr
 			success: (res) ->
 				console.log(res)
 			error: (res) ->

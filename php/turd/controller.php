@@ -80,9 +80,3 @@
 			$CController->{$the_function}($the_params);
 			
 	}
-
-	
-
-	//$CController->set_copy_string('copyIdentifier', 'This is another test');
-	//$CController->get_copy_string('copyIdentifier');
-
