@@ -163,7 +163,12 @@
     <script src="js/main.js"></script>
     <script src="../scripts/turdcopy.js"></script>
     <script>
-      new TurdApp (document, $);
+      new TurdApp (document, $, {
+        callbacks: {
+          "fb-share": (copy) ->
+            console.log "FB SHARE CALLBACK"
+        }
+      });
     </script>
   </body>
 </html>
