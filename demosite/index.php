@@ -1,8 +1,16 @@
+<?php
+  /**
+   * Copy Initialization
+   */
+  $blurbLang = 'EN'; // Set the default to English
+  $blurbFile = file_get_contents('js/turdcopy-blurbs-'.$blurbLang.'.json'); // Open the JSON COPY file for the specified language
+  $blurb = json_decode($blurbFile); // JSON decode it
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Demo Template Website</title>
+    <title data-blurbid="sitetitle"><?php echo $blurb->siteTitle->text; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -28,26 +36,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Project name</a>
+            <a class="brand" data-blurbid="navHeader" href="#"><?php echo $blurb->navHeader->text; ?></a>
             
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="nav-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
+                <li class="active"><a href="#" data-blurbid="navMenuItem1"><?php echo $blurb->navMenuItem1->text; ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem2"><?php echo $blurb->navMenuItem2->text; ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem3"><?php echo $blurb->navMenuItem3->text; ?></a></li>
+                <li><a href="#" data-blurbid="navMenuItem4"><?php echo $blurb->navMenuItem4->text; ?></a></li>
               </ul>
             </div>
           </div>
