@@ -36,11 +36,10 @@ class this.TurdApp
 		$('[data-blurb-id]').unbind('click').click ->
 			element = null
 			element = $(@)
-			console.log 'I CLICKED ON: ' + element.data('blurb-id')
+			
 			$('#turd-sidebar textarea').val($(@).text())
 			$('#turd-sidebar input').val($(@).data('blurb-id'));
 			$('#turd-sidebar textarea').unbind().keyup ->
-				console.log 'I am MODDING: ' + element.data('blurb-id')
 				newText = $('#turd-sidebar textarea').val()
 				$(element).text(newText)
 
